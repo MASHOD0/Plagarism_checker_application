@@ -7,7 +7,8 @@ CREATE TABLE "Users" (
 CREATE TABLE "History" (
   "search_id" SERIAL PRIMARY KEY,
   "id" int,
-  "time" timestamp
+  "time" timestamp,
+  "language" varchar,
 );
 
 CREATE TABLE "Sentence_history" (
