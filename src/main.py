@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, session
 from werkzeug.utils import redirect
 import hashlib
 from DB import db, query as q
+from NLP import nlp
 
 app = Flask(__name__)
 app.secret_key = 'Lydoydodpdo6do6dpd_5#y2L"F4Q8z\n\xec]/'
@@ -54,10 +55,19 @@ def signup():
         return render_template("register.html")
 
             ### Home Page ###
-@app.route("/home")
+@app.route("/home", methods=['GET', 'POST'])
 def home():
-    history = db.fetch(conn, q.get_history.format(session['username']))
-    return render_template("home.html", history=history())
+    if 'username' in session:
+        if method == "POST":
+            language = request.form['Language']
+            text = request.form['Text']
+            sentences = nlp.get_sentences(language, text)
+        history = db.fetch(conn, q.get_history.format(session['username']))
+        return render_template("home.html", history=history())
+    else:
+        return redirect("/login")
+
+            ### Logout Page ###
 
 if __name__ == '__main__':
     app.run(debug=True)
