@@ -3,6 +3,8 @@ from werkzeug.utils import redirect
 import hashlib
 from DB import db, query as q
 from NLP import nlp
+from datetime import timestamp
+from Report import report
 
 app = Flask(__name__)
 app.secret_key = 'Lydoydodpdo6do6dpd_5#y2L"F4Q8z\n\xec]/'
@@ -23,7 +25,7 @@ def login():
 
             dk = hashlib.pbkdf2_hmac('sha256', bytes(password, 'utf-8'), b'salt', 100000)
             
-            fetch_password = db.fetch(conn, q.get__pw.format(name))
+            fetch_password = db.fetch(conn, q.get_pw.format(name))
 
             if fetch_password[0][0] == dk.hex():
                 print("login successful!!!!")
@@ -41,13 +43,12 @@ def signup():
     if request.method == "POST":
         password = request.form['Password']
         name = request.form['Name']
-        email = request.form['Email']
         c_password = request.form['Confirm Password']
 
-        dk = hashlib.pbkdf2_hmac('sha256', bytes(password, 'utf-8'), b'salltyt', 100000)
+        dk = hashlib.pbkdf2_hmac('sha256', bytes(password, 'utf-8'), b'salt', 100000)
         
         if password == c_password:
-            db.execute(conn,q.add_new_user.format(name, dk.hex(), email))
+            db.execute(conn,q.add_new_user.format(name, dk.hex()))
             return redirect("/home")
         else:
             return redirect("/register")
@@ -61,13 +62,20 @@ def home():
         if method == "POST":
             language = request.form['Language']
             text = request.form['Text']
+
             sentences = nlp.get_sentences(language, text)
+            report = report.generate_report(sentences, language)
+            return render_template("home.html", report=report)
         history = db.fetch(conn, q.get_history.format(session['username']))
         return render_template("home.html", history=history())
     else:
         return redirect("/login")
 
             ### Logout Page ###
+@app.route("/logout")
+def logout():
+    session.pop('username', None)
+    return redirect("/login")
 
 if __name__ == '__main__':
     app.run(debug=True)
