@@ -5,7 +5,7 @@ from DB import db, query as q
 from NLP import nlp
 import datetime
 from report import generate_report
-from history import create_history
+from history import create_history, get_history
 
 
 #getting the time
