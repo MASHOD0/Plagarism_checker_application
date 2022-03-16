@@ -38,4 +38,4 @@ def generate_report(sentences: list, language: str):
                 
     score = (score/len(sentences))*100
         
-    return p_words, p_articles, score
+    return lable, p_words, p_articles, score
