@@ -10,12 +10,7 @@ get_history="""
                 JOIN "Sentence_history" ON "History".search_id="Sentence_history".search_id
                 WHERE id = (SELECT id FROM "Users" WHERE username='{}');
             """
-get_all_data="""
-                SELECT Articles.article_id, Articles.link, Articles.metadata, Article_sentence.sentence_id, Article_sentence.sentence
-                FROM Articles
-                JOIN Article_sentence ON Articles.article_id=Article_sentence.article_id
-                WHERE Articles.language = (SELECT language_id FROM Languages WHERE language = '{}');
-                """
+
 add_history="""INSERT INTO public."History"( id, "time", language)
                 VALUES ((SELECT id from "Users" where username='{}'), TIMESTAMP '{}', '{}');
                 """
@@ -23,7 +18,18 @@ get_search_id="""SELECT search_id FROM "History" WHERE "time" = '{}' AND id = (s
 add_sentence_history="""INSERT INTO public."Sentence_history"( sentence, search_id)
 	                VALUES ( '{}', {});"""
 
-get_history= """SELECT "History".search_id, "History".language, "History".time, "Sentence_history".sentence_id, "Sentence_history".sentence
+get_history="""SELECT "History".search_id, "History".language, "History".time, "Sentence_history".sentence_id, "Sentence_history".sentence
                 FROM "History"
                 JOIN "Sentence_history" ON "History".search_id = "Sentence_history".search_id
                 WHERE "History".id = (SELECT "id" FROM "Users" WHERE username = '{}')"""
+
+get_all_data=""" """
+
+## Library end queries
+
+lang="""SELECT * FROM "Languages";"""
+add_lang="""INSERT INTO public."Languages"(language) VALUES ( '{}');"""
+add_article="""INSERT INTO public."Articles"( language_id, article_link, article_metadata)
+	        VALUES ({}, '{}', '{}');"""
+add_sentence="""INSERT INTO public."Article_sentence"( article_id, sentence) VALUES ( {}, '{}');"""
+get_article_id="""SELECT article_id FROM "Articles" WHERE "article_link"='{}';"""
