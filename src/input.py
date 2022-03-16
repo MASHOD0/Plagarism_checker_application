@@ -23,3 +23,10 @@ def add_to_db(conn, language, link, metadata, sentences):
     print("Added to DB")
     
 
+if __name__ == "__main__":
+    conn = db.SihDB_Connect()
+    text = "जिन चार राज्यों में भाजपा ने जीत हासिल की है, उनके वरिष्ठ नेता राष्ट्रीय राजधानी में गृह मंत्री अमित शाह और पार्टी प्रमुख जेपी नड्डा और पार्टी महासचिव (संगठन) बीएल संतोष सहित पार्टी के केंद्रीय नेताओं के साथ चर्चा कर रहे हैं। गोवा, उत्तराखंड और मणिपुर में पार्टी के मुख्यमंत्रियों की पसंद को लेकर अटकलें लगाई जा रही हैं। सूत्रों ने एएनआई को बताया कि सरकार गठन के अलावा पार्टी की जीत और हार और इसके कारणों और कारकों के बारे में चुनाव परिणामों का विश्लेषण भी कर रही है। "
+    sentences = input_data('hi', text)
+    metadata="first string through the script"
+    link="https://www.amarujala.com"
+    add_to_db(conn, 'hi', link, metadata, sentences)
