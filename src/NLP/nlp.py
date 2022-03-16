@@ -14,6 +14,6 @@ def get_sentences(text, language):
     
     common.set_resources_path(INDIC_NLP_RESOURCES)
     loader.load()
-    sentences=sentence_tokenize.sentence_split(text, lang='hi')
+    sentences=sentence_tokenize.sentence_split(text, lang=language)
     return sentences
     
