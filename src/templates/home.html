@@ -1,35 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <title>Home</title>
+    <style>
+        .neonText {
+            color: rgb(0, 0, 0);
+            text-shadow:
+                0 0 7px rgb(255, 255, 255),
+                0 0 10px rgb(255, 255, 255);
+        }
+
+        /* Additional styling */
+
+        body {
+            font-size: 18px;
+            font-family: "Vibur", sans-serif;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+        }
+
+        h2 {
+            font-size: 1rem;
+        }
+
+        button {
+            background: rgb(255, 255, 255);
+            border-style: ridge;
+            transition-duration: 0.4s;
+            border-color: #ffd5ad;
+            border-radius: 0.3cm;
+            width: 5cm;
+            height: 1cm;
+            font-size: x-large;
+        }
+
+        button:hover {
+            background: #ffd5ae;
+            box-shadow: 0 0 10px #ffbd80, 0 0 40px #ffbd80, 0 0 80px #ffbd80;
+            color: #f0f8ff;
+        }
+
+        form {
+            font-size: large;
+            text-align: center;
+            background-color: #f0f8ff;
+            border-radius: 10px;
+        }
+
+        .container {
+            box-shadow: 0px 0px 15px 5px #ffb342, 0 0 5px 5px rgb(255, 255, 255);
+            border-radius: 10px;
+            margin: auto;
+            margin-top: 150px;
         
+            width: 15cm;
+            
 
-        <title>Home</title>
 
-    </head>
-    <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Home</h1>
-                </div>
+        }
+    </style>
+
+</head>
+
+<body
+    style="background-image: url(https://image.freepik.com/free-photo/hand-painted-watercolor-background-with-sky-clouds-shape_24972-1095.jpg); background-size: cover;background-repeat: no-repeat;background-position: centre; position: relative;">
+    <div class="container">
+        <form>
+            <br>
+            <h4>History</h4>
+            <label for="txt"></label>
+            <textarea id="txt" name="mytext" rows="12" cols="50" placeholder="Text"></textarea>
+            <div>
+                <label for="lang">LANGUAGE:</label>
+                <select name="mylang" id="lan">
+                    <option value="Hindi">Hindi</option>
+                </select>
             </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Welcome to the Home Page</h3>
-                        </div>
-                        <div class="panel-body">
-                            <p>This is the home page of the website. You can use this page to display information about the website.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
+            <br>
+            <button>
+                <center>SUBMIT</center>
+            </button>
+            <br>
+            <br>
+        </form>
+    </div>
+        <br><br>
+</body>
+
+</Html>
