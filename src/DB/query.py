@@ -16,3 +16,6 @@ get_all_data="""
                 JOIN Article_sentence ON Articles.article_id=Article_sentence.article_id
                 WHERE Articles.language = (SELECT language_id FROM Languages WHERE language = '{}');
                 """
+add_history=""""""
+get_search_id=""""""
+add_sentence_history=""""""
