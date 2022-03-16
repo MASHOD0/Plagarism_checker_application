@@ -3,10 +3,16 @@ from werkzeug.utils import redirect
 import hashlib
 from DB import db, query as q
 from NLP import nlp
-from datetime import timestamp
-from Report import report
+import datetime
+from report import generate_report
+from history import create_history
+
+
+#getting the time
+timestamp = datetime.datetime.now().timestamp()
 
 app = Flask(__name__)
+
 app.secret_key = 'Lydoydodpdo6do6dpd_5#y2L"F4Q8z\n\xec]/'
 conn = db.SihDB_Connect()
 
