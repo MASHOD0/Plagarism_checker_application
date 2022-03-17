@@ -23,7 +23,12 @@ get_history="""SELECT "History".search_id, "History".language, "History".time, "
                 JOIN "Sentence_history" ON "History".search_id = "Sentence_history".search_id
                 WHERE "History".id = (SELECT "id" FROM "Users" WHERE username = '{}')"""
 
-get_all_data=""" """
+get_all_data="""SELECT "Articles".article_id, "Articles".article_link, "Articles".article_metadata, "Article_sentence".sentence_id, "Article_sentence".sentence
+                FROM "Articles"
+                JOIN "Article_sentence"
+                ON "Article_sentence".article_id = "Articles".article_id
+                WHERE "Articles".language_id = (SELECT language_id FROM "Languages" WHERE "language" = '{}');
+                """
 
 ## Library end queries
 
