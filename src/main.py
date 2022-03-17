@@ -65,15 +65,24 @@ def signup():
 @app.route("/home", methods=['GET', 'POST'])
 def home():
     if 'username' in session:
-        if method == "POST":
+        if request.method == "POST":
             language = request.form['Language']
             text = request.form['Text']
 
             sentences = nlp.get_sentences(language, text)
             report = report.generate_report(sentences, language)
-            return render_template("home.html", report=report)
+            session['report'] = report
+            return redirect("/report")
         history = db.fetch(conn, q.get_history.format(session['username']))
         return render_template("home.html", history=history())
+    else:
+        return redirect("/login")
+
+                ### Report Page ### 
+@app.route("/results")
+def results():
+    if 'username' in session and 'report' in session:
+        return render_template("results.html")
     else:
         return redirect("/login")
 
@@ -81,6 +90,7 @@ def home():
 @app.route("/logout")
 def logout():
     session.pop('username', None)
+    session.pop('report', None)
     return redirect("/login")
 
 if __name__ == '__main__':
