@@ -2,90 +2,40 @@
 <Html>   
 <Head>    
 <Title>   
-rohan
+webpage
 </Title>
-<style>
-  .neonText {
-  color: rgb(0, 0, 0);
-  text-shadow:
-      0 0 7px rgb(255, 255, 255),
-      0 0 10px rgb(255, 255, 255);
-}
-
-/* Additional styling */
-  
-body {
-  font-size: 18px;
-  font-family: "Vibur", sans-serif;
-}  
-
-h1, h2 {
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: 400;
-}
-  
-h1 {
-    font-size: 2.2rem;
-}
-  
-h2 {
-    font-size: 1rem;
-}
-    button{
-        background:  rgb(255, 255, 255);
-        border-style: ridge;
-        transition-duration: 0.4s;
-        border-color: #ffd5ad;
-        border-radius: 0.3cm;
-        width: 5cm;
-        height: 1cm;
-        font-size: x-large;
-    }
-    button:hover{
-        background:  #ffd5ae;
-        box-shadow: 0 0 10px #ffbd80, 0 0 40px #ffbd80, 0 0 80px #ffbd80;
-        color: #f0f8ff;
-    }
-    form{
-        font-size:large;
-        text-align: center;
-        background-color: #f0f8ff;
-        border-radius: 10px;
-    }
-    .container{
-        box-shadow: 0px 0px 15px 5px #ffb342, 0 0 5px 5px rgb(255, 255, 255);
-        border-radius: 10px;
-        width: 11cm;
-    }
-</style>
+<link rel="stylesheet" href="../static/style.css">
 </Head>
-<body style="background-image: url(https://image.freepik.com/free-photo/hand-painted-watercolor-background-with-sky-clouds-shape_24972-1095.jpg); background-size: cover;background-repeat: no-repeat;background-position: centre; position: relative;">
-    <br><br><br><br><br><br><br><br><br><br><br><br>
-    <center>
-    <div class="container">
-<form>
-    <br>
-    <label for="lname"></label>
-    <label for="lname">NAME:</label>
-    <input type="text" id="lname" name="lname" placeholder="Enter name"><br><br>
-
-    <label for="lname">Email:</label>
-    <input type="email" name="Email" placeholder="Enter email"><br><br>
-    
-    <label for="fname">PASSWORD:</label>
-    <input type="Password" name="Password" placeholder="Enter Password"><br><br>
-
-    <label for="fname">CONFIRM PASSWORD:</label>
-    <input type="Password" name="Password" placeholder="Confirm Password"><br><br>
-
-    <button><center>REGISTER</center></button>
-    <label for="lname"></label>
-    <br>
-    <br>
-    </form>
-</div>
-<br><br>
-</div>
+<body style="background-image: url(https://img.freepik.com/free-vector/watercolor-background_87374-69.jpg?size=626&ext=jpg); background-size: cover;background-repeat: no-repeat;background-position: centre; position: relative;">
+    <div class="login-wrap">
+        <div class="login-html">
+            <br><br><br>
+            <p style="color:white"><input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label></p>
+            <div class="login-form">
+                <div class="sign-up-htm">
+                    <div class="group">
+                        <label for="user" class="label">Username</label>
+                        <input id="user" type="text" class="input">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Password</label>
+                        <input id="pass" type="password" class="input" data-type="password">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Repeat Password</label>
+                        <input id="pass" type="password" class="input" data-type="password">
+                    </div>
+                    <br>
+                    <div class="group">
+                        <input type="submit" class="button" value="Sign Up">
+                    </div>
+                    <br>
+                    <div class="group">
+                        <a href="/login"><input type="submit" class="button" value="Already a user ?"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </Html>
