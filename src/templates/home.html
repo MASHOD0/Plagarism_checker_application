@@ -1,56 +1,55 @@
-<!-- <textarea id="txt" name="mytext" rows="12" cols="50" placeholder="Text"></textarea> -->
+
 <!Doctype Html>
 <Html>   
-<Head>    
-<Title>   
-Home
-</Title>
-<link rel="stylesheet" href="../static/style.css">
-</Head>
-<body style="background-image: url(https://img.freepik.com/free-vector/watercolor-background_87374-69.jpg?size=626&ext=jpg); background-size: cover;background-repeat: no-repeat;background-position: centre; position: relative;">
-    <div class="login-wrap">
-        
-            <div class="login-html">
-                <br><br><br><br><br><br>
-                <p style="color:white"><input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Welcome, {{ username }}</label></p>
-                <div class="login-form">
-                    <div class="sign-up-htm">
-                        <form action="#" method="POST"></form>
+    <Head>    
+        <Title>   
+            Home
+        </Title>
+    <link rel="stylesheet" href="../static/style.css">
+    </Head>
+    <body style="background-image: url(https://img.freepik.com/free-vector/watercolor-background_87374-69.jpg?size=626&ext=jpg); background-size: cover;background-repeat: no-repeat;background-position: centre; position: relative;">
+        <div class="login-wrap">
+            
+                <div class="login-html">
+                    <br><br><br><br>
+                    <p style="color:white"><input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Welcome, {{ username }}</label></p>
+                    <div class="login-form">
+                        <div class="sign-up-htm">
+                            <form action="#" method="POST">
+                                <div class="group">
+                                    <label for="user" class="label">text</label>
+                                    <input name="Text" id="user" rows="12" cols="50" type="text" class="input">
+                                </div>
+                                <div class="group">
+                                    <label for="pass" class="label">Language</label>
+                                    <select name="Language" id="lan">
+                                        <option value="hi">Hindi</option>
+                                    </select>
+                                </div>
+                                <div class="group">
+                                    <input type="submit" class="button" value="Submit">
+                                </div>
+                            </form>
+                        
                             <div class="group">
-                                <label for="user" class="label">text</label>
-                                <input name="Text" id="user" rows="12" cols="50" type="text" class="input">
-                            </div>
-                            <div class="group">
-                                <label for="pass" class="label">Language</label>
-                                <select name="Language" id="lan">
-                                    <option value="hi">Hindi</option>
-                                </select>
+                                <a href="/history" "text-decoration: none;"><input type="submit" class="button" value="history"></a>
                             </div>
                             <br>
                             <div class="group">
-                                <input type="submit" class="button" value="Submit">
+                                <a href="/logout" "text-decoration: none;"><input type="submit" class="button" value="log out"></a>
                             </div>
-                        </form>
+                    </div>
+                </div>
+            
+            <div class="login-form">
+                <div class="sign-up-htm">
                     
-                        <div class="group">
-                            <a href="/history" "text-decoration: none;"><input type="submit" class="button" value="history"></a>
-                        </div>
-                        <br>
-                        <div class="group">
-                            <a href="/logout" "text-decoration: none;"><input type="submit" class="button" value="log out"></a>
-                        </div>
+                    <br>
+                    
                 </div>
             </div>
-        
-        <div class="login-form">
-            <div class="sign-up-htm">
-                
-                <br>
-                
-            </div>
         </div>
-    </div>
-</body>
+    </body>
 </Html>
 
 
