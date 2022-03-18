@@ -8,7 +8,8 @@ from NLP.indic_nlp_library.indicnlp.tokenize import sentence_tokenize
    
 def get_sentences(text, language):
     """
-    Returns a list of sentences in the text. 
+    Returns a list of sentences in the text.
+    
     """
     sys.path.append(r'{}'.format(INDIC_NLP_LIB_HOME))
     
