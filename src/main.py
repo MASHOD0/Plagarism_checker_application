@@ -37,7 +37,7 @@ def login():
                 print("login successful!!!!")
                 session['username']= name
         
-                return redirect('/')
+                return redirect('/home')
         else:
             return render_template("login.html")
     except:
@@ -73,11 +73,20 @@ def home():
             report = report.generate_report(sentences, language)
             session['report'] = report
             return redirect("/report")
-        history = db.fetch(conn, q.get_history.format(session['username']))
-        return render_template("home.html", history=history())
+        
+        return render_template("home.html")
     else:
         return redirect("/login")
-
+               
+                ### history Page ###
+@app.route("/history", methods=['GET', 'POST'])
+def history():
+    if 'username' in session:
+        history = db.fetch(conn, q.get_history.format(session['username']))
+        return render_template("history.html", history=history)
+    else:
+        return redirect("/login")
+                ### Report Page ###
                 ### Report Page ### 
 @app.route("/results")
 def results():
