@@ -9,7 +9,7 @@ import history
 
 
 #getting the time
-timestamp = datetime.datetime.now().timestamp()
+# timestamp = datetime.datetime.now().timestamp()
 
 app = Flask(__name__)
 
@@ -70,9 +70,10 @@ def home():
             text = request.form['Text']
 
             sentences = nlp.get_sentences(language, text)
-            report = report.generate_report(sentences, language)
             session['language'] = language
             session['text'] = text
+            print(text)
+            print(language)
             timestamp = datetime.now(timezone.utc)
             history.create_history(conn, session['username'], timestamp, sentences, language)
             return redirect("/report")
@@ -83,16 +84,16 @@ def home():
                
                 ### history Page ### 
 @app.route("/history", methods=['GET', 'POST'])
-def history():
+def history_page():
     if 'username' in session:
-        history = history.get_history(conn, session['username'])
+        his = history.get_history(conn, session['username'])
 
-        return render_template("history.html", history=history)
+        return render_template("history.html", history=his)
     else:
         return redirect("/login")
                 
                 ### Report Page ### 
-@app.route("/results")
+@app.route("/report")
 def results():
     if 'username' in session and 'language' in session and 'text' in session:
         language = session['language']
