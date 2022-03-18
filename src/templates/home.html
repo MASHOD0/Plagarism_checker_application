@@ -1,107 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-
-    <title>Home</title>
-    <style>
-        .neonText {
-            color: rgb(0, 0, 0);
-            text-shadow:
-                0 0 7px rgb(255, 255, 255),
-                0 0 10px rgb(255, 255, 255);
-        }
-
-        /* Additional styling */
-
-        body {
-            font-size: 18px;
-            font-family: "Vibur", sans-serif;
-        }
-
-        h1,
-        h2 {
-            text-align: center;
-            text-transform: uppercase;
-            font-weight: 400;
-        }
-
-        h1 {
-            font-size: 2.2rem;
-        }
-
-        h2 {
-            font-size: 1rem;
-        }
-
-        button {
-            background: rgb(255, 255, 255);
-            border-style: ridge;
-            transition-duration: 0.4s;
-            border-color: #ffd5ad;
-            border-radius: 0.3cm;
-            width: 5cm;
-            height: 1cm;
-            font-size: x-large;
-        }
-
-        button:hover {
-            background: #ffd5ae;
-            box-shadow: 0 0 10px #ffbd80, 0 0 40px #ffbd80, 0 0 80px #ffbd80;
-            color: #f0f8ff;
-        }
-
-        form {
-            font-size: large;
-            text-align: center;
-            background-color: #f0f8ff;
-            border-radius: 10px;
-        }
-
-        .container {
-            box-shadow: 0px 0px 15px 5px #ffb342, 0 0 5px 5px rgb(255, 255, 255);
-            border-radius: 10px;
-            margin: auto;
-            margin-top: 150px;
+<!-- <textarea id="txt" name="mytext" rows="12" cols="50" placeholder="Text"></textarea> -->
+<!Doctype Html>
+<Html>   
+<Head>    
+<Title>   
+Home
+</Title>
+<link rel="stylesheet" href="../static/style.css">
+</Head>
+<body style="background-image: url(https://img.freepik.com/free-vector/watercolor-background_87374-69.jpg?size=626&ext=jpg); background-size: cover;background-repeat: no-repeat;background-position: centre; position: relative;">
+    <div class="login-wrap">
         
-            width: 15cm;
-            
-
-
-        }
-    </style>
-
-</head>
-
-<body
-    style="background-image: url(https://image.freepik.com/free-photo/hand-painted-watercolor-background-with-sky-clouds-shape_24972-1095.jpg); background-size: cover;background-repeat: no-repeat;background-position: centre; position: relative;">
-    <div class="container">
-        <form>
-            <br>
-            <h4>History</h4>
-            <label for="txt"></label>
-            <textarea id="txt" name="mytext" rows="12" cols="50" placeholder="Text"></textarea>
-            <div>
-                <label for="lang">LANGUAGE:</label>
-                <select name="mylang" id="lan">
-                    <option value="Hindi">Hindi</option>
-                </select>
+            <div class="login-html">
+                <br><br><br><br><br><br>
+                <p style="color:white"><input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Welcome, {{ username }}</label></p>
+                <div class="login-form">
+                    <div class="sign-up-htm">
+                        <form action="#" method="POST"></form>
+                            <div class="group">
+                                <label for="user" class="label">text</label>
+                                <input name="Text" id="user" rows="12" cols="50" type="text" class="input">
+                            </div>
+                            <div class="group">
+                                <label for="pass" class="label">Language</label>
+                                <select name="Language" id="lan">
+                                    <option value="hi">Hindi</option>
+                                </select>
+                            </div>
+                            <br>
+                            <div class="group">
+                                <input type="submit" class="button" value="Submit">
+                            </div>
+                        </form>
+                    
+                        <div class="group">
+                            <a href="/history" "text-decoration: none;"><input type="submit" class="button" value="history"></a>
+                        </div>
+                        <br>
+                        <div class="group">
+                            <a href="/logout" "text-decoration: none;"><input type="submit" class="button" value="log out"></a>
+                        </div>
+                </div>
             </div>
-            <br>
-            <button>
-                <center>SUBMIT</center>
-            </button>
-            <br>
-            <br>
-        </form>
+        
+        <div class="login-form">
+            <div class="sign-up-htm">
+                
+                <br>
+                
+            </div>
+        </div>
     </div>
-        <br><br>
 </body>
-
 </Html>
+
+
