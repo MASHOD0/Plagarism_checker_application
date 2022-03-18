@@ -33,7 +33,7 @@ get_all_data="""SELECT "Articles".article_id, "Articles".article_link, "Articles
 ## Library end queries
 
 lang="""SELECT * FROM "Languages";"""
-add_lang="""INSERT INTO public."Languages"(language) VALUES ( '{}');"""
+add_lang="""INSERT INTO public."Languages"(language) VALUES ('{}');"""
 add_article="""INSERT INTO public."Articles"( language_id, article_link, article_metadata)
 	        VALUES ({}, '{}', '{}');"""
 add_sentence="""INSERT INTO public."Article_sentence"( article_id, sentence) VALUES ( {}, '{}');"""
