@@ -23,7 +23,7 @@ def generate_report(sentences: list, language: str):
     score = 0.0
     highest_score = 0.0
     p_articles = []
-    lable = []
+    label = []
     temp_article_sentence = []
     for sentence in sentences:
         for i in data:
@@ -33,19 +33,19 @@ def generate_report(sentences: list, language: str):
                 temp_article_sentence = i
         if highest_score > 0.75 and highest_score <= 0.85:
             p_articles.append(temp_article_sentence)
-            lable.append("Related Meaning")
+            label.append("Related Meaning")
             score += highest_score
            
         elif highest_score > 0.85 and highest_score <= 0.95:
             p_articles.append(temp_article_sentence)
-            lable.append("Minor changes")
+            label.append("Minor changes")
             score += highest_score
         elif highest_score > 0.95:
             p_articles.append(temp_article_sentence)
-            lable.append("Plagarism")
+            label.append("Identical")
             score += highest_score
         else :
-            lable.append("Not Related")
+            label.append("Not Related")
             score += highest_score
                 
     score = (score/len(sentences))*100
@@ -53,4 +53,4 @@ def generate_report(sentences: list, language: str):
         if article[1] not in p_articles:
             p_links.append(article)
         
-    return lable, p_links, score
+    return label, p_links, score
