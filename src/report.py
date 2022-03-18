@@ -3,6 +3,7 @@ from NLP import nlp
 import difflib
 
 conn = db.SihDB_Connect()
+
 def fetch_data(conn, language: str):
     data = db.fetch(conn, q.get_all_data.format(language))
     return data
