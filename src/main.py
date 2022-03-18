@@ -3,9 +3,9 @@ from werkzeug.utils import redirect
 import hashlib
 from DB import db, query as q
 from NLP import nlp
-import datetime
-from report import generate_report
-from history import create_history, get_history
+from datetime import datetime, timezone
+import report
+import history
 
 
 #getting the time
@@ -71,36 +71,45 @@ def home():
 
             sentences = nlp.get_sentences(language, text)
             report = report.generate_report(sentences, language)
-            session['report'] = report
+            session['language'] = language
+            session['text'] = text
+            timestamp = datetime.now(timezone.utc)
+            history.create_history(conn, session['username'], timestamp, sentences, language)
             return redirect("/report")
         
-        return render_template("home.html")
+        return render_template("home.html", username=session['username'])
     else:
         return redirect("/login")
                
-                ### history Page ###
+                ### history Page ### 
 @app.route("/history", methods=['GET', 'POST'])
 def history():
     if 'username' in session:
-        history = db.fetch(conn, q.get_history.format(session['username']))
+        history = history.get_history(conn, session['username'])
+
         return render_template("history.html", history=history)
     else:
         return redirect("/login")
-                ### Report Page ###
+                
                 ### Report Page ### 
 @app.route("/results")
 def results():
-    if 'username' in session and 'report' in session:
-        return render_template("results.html")
+    if 'username' in session and 'language' in session and 'text' in session:
+        language = session['language']
+        text = session['text']
+
+        sentences = nlp.get_sentences(language, text)
+        lable, p_links, score = report.generate_report(sentences, language)
+        return render_template("results.html", lable=lable, p_links=p_links, score=score)
     else:
-        return redirect("/login")
+        return redirect("/logout")
 
             ### Logout Page ###
 @app.route("/logout")
 def logout():
     session.pop('username', None)
     session.pop('report', None)
-    return redirect("/login")
+    return redirect("/")
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)
