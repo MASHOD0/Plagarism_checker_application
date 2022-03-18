@@ -10,6 +10,12 @@ def fetch_data(conn, language: str):
 
 
 def generate_report(sentences: list, language: str):
+    """
+    Generates a report for the given sentences.
+    :param sentences: list of sentences
+    :param language: language of the sentences
+    :return: report
+    """
     data = fetch_data(conn, language)
     # data format: article_id, link, metadata, sentence_id, sentence
     # p_words = 0
