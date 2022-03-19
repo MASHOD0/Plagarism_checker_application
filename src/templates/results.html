@@ -1,92 +1,71 @@
-<script>
-    function generate() {
-  
-    var doc = new jsPDF('p', 'pt');
-  
-    var res = doc.autoTableHtmlToJson(document.getElementById("basic-table"));
-    doc.autoTable(res.columns, res.data, {margin: {top: 80}});
-  
-    var header = function(data) {
-      doc.setFontSize(18);
-      doc.setTextColor(40);
-      doc.setFontStyle('normal');
-      //doc.addImage(headerImgData, 'JPEG', data.settings.margin.left, 20, 50, 50);
-      doc.text("Plaigarism Report", data.settings.margin.left, 50);
-    };
-  
-    var options = {
-      beforePageContent: header,
-      margin: {
-        top: 80
-      },
-      startY: doc.autoTableEndPosY() + 20
-    };
-  
-    doc.autoTable(res.columns, res.data, options);
-  
-    doc.save("table.pdf");
-  }
-</script>
-  <button onclick="generate()">Generate PDF</button>
-  
-  <table id="basic-table">
-    <!-- style="display: none;" -->
-    <thead>
-      <tr>
-        <th>Sentence</th>
-        <th>Plaigarism</th>
-        <th>link</th>
-        
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td align="right">1</td>
-        <td>Donna</td>
-        <td>Moore</td>
-        <td>dmoore0@furl.net</td>
-        <td>China</td>
-        <td>211.56.242.221</td>
-      </tr>
-      <tr>
-        <td align="right">2</td>
-        <td>Janice</td>
-        <td>Henry</td>
-        <td>jhenry1@theatlantic.com</td>
-        <td>Ukraine</td>
-        <td>38.36.7.199</td>
-      </tr>
-      <tr>
-        <td align="right">3</td>
-        <td>Ruth</td>
-        <td>Wells</td>
-        <td>rwells2@constantcontact.com</td>
-        <td>Trinidad and Tobago</td>
-        <td>19.162.133.184</td>
-      </tr>
-      <tr>
-        <td align="right">4</td>
-        <td>Jason</td>
-        <td>Ray</td>
-        <td>jray3@psu.edu</td>
-        <td>Brazil</td>
-        <td>10.68.11.42</td>
-      </tr>
-      <tr>
-        <td align="right">5</td>
-        <td>Jane</td>
-        <td>Stephens</td>
-        <td>jstephens4@go.com</td>
-        <td>United States</td>
-        <td>47.32.129.71</td>
-      </tr>
-      <tr>
-        <td align="right">6</td>
-        <td>Adam</td>
-        <td>Nichols</td>
-        <td>anichols5@com.com</td>
-        <td>Canada</td>
-        <td>18.186.38.37</td>
-      </tr>
-    </tbody>
-  </table>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, length=device-">
+  <title>Document</title>
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body style="background-image: url(https://img.freepik.com/free-vector/watercolor-background_87374-69.jpg?size=626&ext=jpg); background-size: cover;background-repeat: no-repeat;background-position: centre; position: relative;">
+  <div class="login-wrap">
+      <div class="login-html">
+          
+          <p style="color:white"><input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Plaigarism Report</label></p>
+          
+          <p style="color:white"><input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Date: {{ timestamp.strftime('%Y-%m-%d') }}</label></p>
+          <p style="color:white"><label for="tab-2" class="tab">Score: {{ score }}</label></p>
+          <p style="color:white"><label for="tab-2" class="tab">Plaigarised Sentences: {{ p_sent }}</label></p>
+          {% if p_links != [] %}
+          <div class="container">
+            <h2 style="color:white">Links to Plaigarised articles</h2>
+            <ul class="responsive-table">
+              
+              {% for a in range(b) %}
+              <li class="table-row" style="color:white">
+                <div class="col col-1" data-label="Link"><a href="{{ p_links[a] }}">{{ p_links[a] }}</a></div>
+                <div class="col col-2" data-label="Metadata">{{ p_metadata[a] }}</div>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+
+          {% if sentences != None %}
+          <div class="container">
+            <h2 style="color:white">Article</h2>
+            <ul class="responsive-table">
+              
+              {% for b in range(c) %}
+              {% if label[b] == "Related Meaning" %}
+              <li class="table-row" style="color:yellow">
+                <div class="col col-1" data-label="Sentence">{{ sentences[b] }}</div>
+              </li>
+              {% endif %}
+              {% if label[b] == "Minor Changes" %}
+              <li class="table-row" style="color:orange">
+                <div class="col col-1" data-label="Sentence">{{ sentences[b] }}</div>
+              </li> 
+              {% endif %}
+              {% if label[b] == "Identical" %}
+              <li class="table-row" style="color:red">
+                <div class="col col-1" data-label="Sentence">{{ sentences[b] }}</div>
+              </li> 
+              {% endif %}
+              {% if label[b] == "Not Related" %}
+              <li class="table-row" style="color:white">
+                <div class="col col-1" data-label="Sentence">{{ sentences[b] }}</div>
+              </li> 
+              {% endif %}
+
+              
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+
+      </div>
+  </div>
+</body>
+</html>
