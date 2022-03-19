@@ -1,6 +1,6 @@
 from NLP import nlp
 from DB import db, query as q
-
+import demo
 
 
 def input_data(language: str, text: str):
@@ -18,7 +18,7 @@ def add_to_db(conn, language, link, metadata, sentences):
     db.execute(conn, q.add_article.format(language_id, link, metadata))
     article_id = db.fetch(conn, q.get_article_id.format(link))[0][0]
     for sentence in sentences:
-        # print(sentence)
+        #print(sentence)
         db.execute(conn, q.add_sentence.format(article_id, sentence))
     print("Added to DB")
     
