@@ -9,12 +9,14 @@ from NLP.indic_nlp_library.indicnlp.tokenize import sentence_tokenize
 def get_sentences(text, language):
     """
     Returns a list of sentences in the text.
-    
+
     """
     sys.path.append(r'{}'.format(INDIC_NLP_LIB_HOME))
     
     common.set_resources_path(INDIC_NLP_RESOURCES)
     loader.load()
     sentences=sentence_tokenize.sentence_split(text, lang=language)
+    for sentence in sentences:
+        print(f"from nlp: {sentence}")
     return sentences
     
