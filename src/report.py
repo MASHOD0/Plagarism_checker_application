@@ -25,6 +25,7 @@ def generate_report(sentences: list, language: str):
     p_articles = []
     label = []
     temp_article_sentence = []
+    p_metadata = []
     for sentence in sentences:
         for i in data:
             plagarism = difflib.SequenceMatcher(None, sentence, i[-1]).ratio()
@@ -47,10 +48,13 @@ def generate_report(sentences: list, language: str):
         else :
             label.append("Not Related")
             score += highest_score
-                
-    score = (score/len(sentences))*100
+
+    if len(sentences) != 0:
+        score = (score/len(sentences))*100
+
     for article in p_articles:
-        if article[1] not in p_articles:
-            p_links.append(article)
+        if article[1] not in p_links:
+            p_links.append(article[1])
+            p_metadata.append(article[2])
         
-    return label, p_links, score
+    return label, p_links, score, p_metadata
