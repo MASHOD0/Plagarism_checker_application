@@ -69,11 +69,11 @@ def home():
             language = request.form['Language']
             text = request.form['Text']
 
-            sentences = nlp.get_sentences(language, text)
+            sentences = nlp.get_sentences(text, language)
             session['language'] = language
             session['text'] = text
             print(text)
-            print(language)
+            
             timestamp = datetime.now(timezone.utc)
             history.create_history(conn, session['username'], timestamp, sentences, language)
             return redirect("/report")
@@ -87,8 +87,8 @@ def home():
 def history_page():
     if 'username' in session:
         his = history.get_history(conn, session['username'])
-
-        return render_template("history.html", history=his)
+        print(his)
+        return render_template("history.html", history=his, b=len(his))
     else:
         return redirect("/login")
                 
@@ -97,11 +97,16 @@ def history_page():
 def results():
     if 'username' in session and 'language' in session and 'text' in session:
         language = session['language']
-        text = session['text']
-
-        sentences = nlp.get_sentences(language, text)
-        lable, p_links, score = report.generate_report(sentences, language)
-        return render_template("results.html", lable=lable, p_links=p_links, score=score)
+        text = session['text']      
+        sentences = nlp.get_sentences(text, language)
+        print(sentences)
+        label, p_links, score, p_metadata = report.generate_report(sentences, language)
+        print(label, p_links, score, p_metadata)
+        p_sent = 0
+        for l in label:
+            if l != "Not Related":
+                p_sent += 1
+        return render_template("results.html",sentences=sentences, label=label, p_links=p_links, score=round(score), p_metadata = p_metadata, timestamp = datetime.now(timezone.utc), p_sent=p_sent, b=len(p_links), c= len(sentences))
     else:
         return redirect("/logout")
 
