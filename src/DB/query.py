@@ -4,12 +4,12 @@ add_new_user="""
 get_pw="""
         SELECT password FROM "Users" WHERE username = '{}';
         """
-get_history="""
-            SELECT "Sentence_history".sentence_id, "Sentence_history".sentence, "History".search_id, "History".time
-                FROM "History"
-                JOIN "Sentence_history" ON "History".search_id="Sentence_history".search_id
-                WHERE id = (SELECT id FROM "Users" WHERE username='{}');
-            """
+# get_history="""
+#             SELECT "Sentence_history".sentence_id, "Sentence_history".sentence, "History".search_id, "History".time
+#                 FROM "History"
+#                 JOIN "Sentence_history" ON "History".search_id="Sentence_history".search_id
+#                 WHERE id = (SELECT id FROM "Users" WHERE username='{}');
+#             """
 
 add_history="""INSERT INTO public."History"( id, "time", language)
                 VALUES ((SELECT id from "Users" where username='{}'), TIMESTAMP '{}', '{}');
