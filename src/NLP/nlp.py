@@ -16,7 +16,6 @@ def get_sentences(text, language):
     common.set_resources_path(INDIC_NLP_RESOURCES)
     loader.load()
     sentences=sentence_tokenize.sentence_split(text, lang=language)
-    for sentence in sentences:
-        print(f"from nlp: {sentence}")
+    # x
     return sentences
     

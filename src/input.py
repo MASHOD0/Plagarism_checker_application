@@ -25,9 +25,24 @@ def add_to_db(conn, language, link, metadata, sentences):
 
 if __name__ == "__main__":
     conn = db.SihDB_Connect()
-    # article link: https://www.amarujala.com/india-news/after-assembly-poll-victories-bjp-gets-down-to-analysing-results-with-an-eye-on-2024-lok-sabha-election?src=tlh&position=1
-    text = "जिन चार राज्यों में भाजपा ने जीत हासिल की है, उनके वरिष्ठ नेता राष्ट्रीय राजधानी में गृह मंत्री अमित शाह और पार्टी प्रमुख जेपी नड्डा और पार्टी महासचिव (संगठन) बीएल संतोष सहित पार्टी के केंद्रीय नेताओं के साथ चर्चा कर रहे हैं। गोवा, उत्तराखंड और मणिपुर में पार्टी के मुख्यमंत्रियों की पसंद को लेकर अटकलें लगाई जा रही हैं। सूत्रों ने एएनआई को बताया कि सरकार गठन के अलावा पार्टी की जीत और हार और इसके कारणों और कारकों के बारे में चुनाव परिणामों का विश्लेषण भी कर रही है। "
-    sentences = input_data('hi', text)
-    metadata="first string through the script"
-    link="https://www.amarujala.com"
-    add_to_db(conn, 'hi', link, metadata, sentences)
+    article1 = demo.article1
+    link1 = demo.link1
+    metadata1 = demo.metadata1
+    language1 = demo.language1
+    sentences1 = input_data(language1, article1)
+    add_to_db(conn, language1, link1, metadata1, sentences1)
+    article2 = demo.article2
+    link2 = demo.link2
+    metadata2 = demo.metadata2
+    language2 = demo.language2
+    sentences2 = input_data(language2, article2)
+
+    add_to_db(conn, language2, link2, metadata2, sentences2)
+    db.close(conn)
+    # print("Added to DB")
+    # # article link: https://www.amarujala.com/india-news/after-assembly-poll-victories-bjp-gets-down-to-analysing-results-with-an-eye-on-2024-lok-sabha-election?src=tlh&position=1
+    
+    # sentences = input_data('hi', text)
+    # metadata="first string through the script"
+    # link="https://www.amarujala.com"
+    # add_to_db(conn, 'hi', link, metadata, sentences)

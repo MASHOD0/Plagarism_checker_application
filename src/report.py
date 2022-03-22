@@ -28,7 +28,7 @@ def generate_report(sentences: list, language: str):
     p_metadata = []
     for sentence in sentences:
         for i in data:
-            plagarism = difflib.SequenceMatcher(None, sentence, i[-1]).ratio()
+            plagarism = difflib.SequenceMatcher(None, i[-1], sentence).ratio()
             if plagarism > highest_score:
                 highest_score = plagarism
                 temp_article_sentence = i
@@ -54,6 +54,7 @@ def generate_report(sentences: list, language: str):
 
     for article in p_articles:
         if article[1] not in p_links:
+            print(f"Link: {article[1]}")
             p_links.append(article[1])
             p_metadata.append(article[2])
         

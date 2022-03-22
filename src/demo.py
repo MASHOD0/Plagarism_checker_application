@@ -10,3 +10,4 @@ metadata2 = "essay on holi"
 language2 = 'hi'
 
 random_sentence = 'मुझे नहीं पता कि मुझे क्या लिखना है'
+demo_text=" "
