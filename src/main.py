@@ -72,7 +72,7 @@ def home():
             sentences = nlp.get_sentences(text, language)
             session['language'] = language
             session['text'] = text
-            print(text)
+            # print(text)
             
             timestamp = datetime.now(timezone.utc)
             history.create_history(conn, session['username'], timestamp, sentences, language)
