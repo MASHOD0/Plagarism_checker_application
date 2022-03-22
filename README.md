@@ -15,6 +15,12 @@ the plagarism checker has 4 modules
  ┃ ┃ ┗ 📜query.cpython-39.pyc
  ┃ ┣ 📜db.py
  ┃ ┗ 📜query.py
+ ┣ 📜demo.py
+ ┣ 📜history.py
+ ┣ 📜input.py
+ ┣ 📜main.py
+ ┣ 📜report.py
+ ┣ 📜test.py
  ┣ 📂NLP
  ┃ ┣ 📂.ipynb_checkpoints
  ┃ ┃ ┗ 📜indic_nlp_examples-checkpoint.ipynb
@@ -182,11 +188,5 @@ the plagarism checker has 4 modules
  ┃ ┣ 📜demo.cpython-39.pyc
  ┃ ┣ 📜history.cpython-39.pyc
  ┃ ┗ 📜report.cpython-39.pyc
- ┣ 📜demo.py
- ┣ 📜history.py
- ┣ 📜input.py
- ┣ 📜main.py
- ┣ 📜report.py
- ┣ 📜test.py
  ┗ 📜test1.py
  ```
