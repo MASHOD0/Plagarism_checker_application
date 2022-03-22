@@ -1,4 +1,7 @@
 # Plagarism_checker_application
+This is an application designed to check for plaigarism between text by matching it against a database of articles from the [National digital library](https://ndl.iitkgp.in).
+the plagarism checker has 4 modules
+![image](https://user-images.githubusercontent.com/63853764/159468592-3d1f4498-572b-4b11-90f5-d76a6c675953.png)
 
 ## File Structure
 ```
