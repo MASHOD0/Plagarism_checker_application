@@ -49,7 +49,7 @@ Article_sentence{
   sentence varchar
 }
 ```
-## Instructions to run the program
+## Instructions to run the application on your local system
 ### Requirements
 - Python `ver 3.7.1` or newer
 - Postgres `ver 13.4` or newer
@@ -60,7 +60,11 @@ Article_sentence{
 - If the credentials are not updated 
     - by default the user is `postgres`
     - by default the password is `postgres`
-
+### Python package requirements:
+- All the required python packages can be installed by using pip to install the requirements in (requirements.txt)[https://github.com/MASHOD0/Plagarism_checker_application/blob/main/src/requirements.txt]
+```bash
+pip install -r requirements.txt
+```
 ## File Structure
 ```
 📦src
