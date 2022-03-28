@@ -62,9 +62,16 @@ Article_sentence{
     - by default the password is `postgres`
 ### Python package requirements:
 - All the required python packages can be installed by using pip to install the requirements in [requirements.txt](https://github.com/MASHOD0/Plagarism_checker_application/blob/main/src/requirements.txt)
+- Run this command:
 ```bash
 pip install -r requirements.txt
 ```
+### Running the application:
+Run this command to start the server and run the application
+```bash
+python src/main.py
+```
+this will run the program on `localhost:5000`
 ## File Structure
 ```
 📦src
