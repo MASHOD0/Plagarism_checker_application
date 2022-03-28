@@ -49,6 +49,10 @@ Article_sentence{
   sentence varchar
 }
 ```
+## Instructions to run the program
+### Requirements
+- Python `ver 3.7.1` or newer
+- Postgres `ver 13.4` or newer
 ## File Structure
 ```
 📦src
