@@ -58,8 +58,8 @@ Article_sentence{
 - (Run this script to add the Schema)[https://github.com/MASHOD0/Plagarism_checker_application/blob/main/src/DB/sql/create.sql]
 - update the user credentials in `src/DB/db.py`
 - If the credentials are not updated 
- - by default the user is `postgres`
- - by default the password is `postgres`
+    - by default the user is `postgres`
+    - by default the password is `postgres`
 
 ## File Structure
 ```
