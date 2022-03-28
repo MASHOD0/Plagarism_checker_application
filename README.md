@@ -20,10 +20,15 @@ Sentence_history{
   sentence varchar
   search_id int
 }
+```
+```mermaid
+erDiagram
 Languages{
   language_id int 
   language varchar
 }
+
+
 Articles{
   article_id int 
   language_id int
@@ -43,11 +48,6 @@ Article_sentence{
   article_id int
   sentence varchar
 }
-  
-
-
-
-
 ```
 ## File Structure
 ```
