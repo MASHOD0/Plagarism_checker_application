@@ -55,13 +55,13 @@ Article_sentence{
 - Postgres `ver 13.4` or newer
 ### Database:
 - Create a postgresql database with name `Sih-ver1` 
-- (Run this script to add the Schema)[https://github.com/MASHOD0/Plagarism_checker_application/blob/main/src/DB/sql/create.sql]
+- [Run this script to add the Schema](https://github.com/MASHOD0/Plagarism_checker_application/blob/main/src/DB/sql/create.sql)
 - update the user credentials in `src/DB/db.py`
 - If the credentials are not updated 
     - by default the user is `postgres`
     - by default the password is `postgres`
 ### Python package requirements:
-- All the required python packages can be installed by using pip to install the requirements in (requirements.txt)[https://github.com/MASHOD0/Plagarism_checker_application/blob/main/src/requirements.txt]
+- All the required python packages can be installed by using pip to install the requirements in [requirements.txt](https://github.com/MASHOD0/Plagarism_checker_application/blob/main/src/requirements.txt)
 ```bash
 pip install -r requirements.txt
 ```
