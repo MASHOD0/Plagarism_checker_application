@@ -2,7 +2,53 @@
 This is an application designed to check for plaigarism between text by matching it against a database of articles from the [National digital library](https://ndl.iitkgp.in).
 the plagarism checker has 4 modules
 ![image](https://user-images.githubusercontent.com/63853764/159468592-3d1f4498-572b-4b11-90f5-d76a6c675953.png)
+## Database Schema
+```mermaid
+ erDiagram 
+Users{
+    id int
+    username varchar
+}
 
+History{
+  search_id int 
+  id int
+  time timestamp
+}
+Sentence_history{
+  sentence_id int 
+  sentence varchar
+  search_id int
+}
+Languages{
+  language_id int 
+  language varchar
+}
+Articles{
+  article_id int 
+  language_id int
+  article_link varchar
+  article_metadata varchar
+}
+Article_tags{
+  article_id int
+  tag_id int
+}
+Tags{
+  tag_id int 
+  tag varchar
+}
+Article_sentence{
+  sentence_id int 
+  article_id int
+  sentence varchar
+}
+  
+
+
+
+
+```
 ## File Structure
 ```
 📦src
