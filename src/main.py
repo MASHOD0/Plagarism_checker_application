@@ -8,9 +8,6 @@ import report
 import history
 
 
-#getting the time
-# timestamp = datetime.datetime.now().timestamp()
-
 app = Flask(__name__)
 
 app.secret_key = 'Lydoydodpdo6do6dpd_5#y2L"F4Q8z\n\xec]/'
@@ -72,7 +69,6 @@ def home():
             sentences = nlp.get_sentences(text, language)
             session['language'] = language
             session['text'] = text
-            # print(text)
             
             timestamp = datetime.now(timezone.utc)
             history.create_history(conn, session['username'], timestamp, sentences, language)
@@ -103,6 +99,7 @@ def results():
         label, p_links, score, p_metadata = report.generate_report(sentences, language)
         print(label, p_links, score, p_metadata)
         p_sent = 0
+        
         for l in label:
             if l != "Not Related":
                 p_sent += 1
