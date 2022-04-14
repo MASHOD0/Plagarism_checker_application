@@ -259,3 +259,7 @@ this will run the program on `localhost:5000`
  ┃ ┗ 📜report.cpython-39.pyc
  ┗ 📜test1.py
  ```
+## Contributors
+- (Mashhood Alam)[https://github.com/MASHOD0] (Team Lead)
+- (Rida Ishtiyaq)[https://github.com/rida228/]
+- (Rohan KV)[https://github.com/rohankatta/]
