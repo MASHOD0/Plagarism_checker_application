@@ -19,9 +19,8 @@ def create_history(conn, username, timestamp, sentences, language):
     search_id=db.fetch(conn, q.get_search_id.format(timestamp, username))[0][0]
     
     for sentence in sentences:
-        print(sentence)
+        # print(sentence)
         db.execute(conn, q.add_sentence_history.format(sentence, search_id))
-
 
 def get_history(conn, username):
     """

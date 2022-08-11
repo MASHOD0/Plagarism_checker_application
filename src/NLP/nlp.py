@@ -2,6 +2,9 @@ INDIC_NLP_LIB_HOME=r"C:\Users\mashh\Documents\git\Plagarism_checker_application\
 INDIC_NLP_RESOURCES=r"C:\Users\mashh\Documents\git\Plagarism_checker_application\src\NLP\indic_nlp_resources"
 
 import sys
+import os
+os.getcwd()
+
 from NLP.indic_nlp_library.indicnlp import common
 from NLP.indic_nlp_library.indicnlp import loader
 from NLP.indic_nlp_library.indicnlp.tokenize import sentence_tokenize
