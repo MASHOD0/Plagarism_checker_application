@@ -100,11 +100,26 @@ def results():
         label, p_links, score, p_metadata = report.generate_report(sentences, language)
         print(label, p_links, score, p_metadata)
         p_sent = 0
-        
+        Not_Related = 0
+        Identical=0
+        Minor_changes=0
+        Related_Meaning=0
+        for l in label:
+            if l =="Not Related":
+                Not_Related +=1 
+            elif l=="Identical" :
+                Identical+= 1
+            elif l=="Minor changes":
+                Minor_changes+=1
+            elif l=="Related Meaning":
+                Related_Meaning+=1       
+        chart=[["Related Meaning",Related_Meaning],["Minor changes", Minor_changes],["Identical",Identical],["Not Related", Not_Related]] 
+
         for l in label:
             if l != "Not Related":
+
                 p_sent += 1
-        return render_template("results.html",sentences=sentences, label=label, p_links=p_links, score=round(score), p_metadata = p_metadata, timestamp = datetime.now(timezone.utc), p_sent=p_sent, b=len(p_links), c= len(sentences))
+        return render_template("results.html",chart=chart,sentences=sentences, label=label, p_links=p_links, score=round(score), p_metadata = p_metadata, timestamp = datetime.now(timezone.utc), p_sent=p_sent, b=len(p_links), c= len(sentences))
     else:
         return redirect("/logout")
 

@@ -1,6 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <style>
+    #chartdiv {
+      width: 100%;
+      height: 500px;
+    }
+    
+    </style>
+    
+    <!-- Resources -->
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+    
+    <!-- Chart code -->
+    <script>
+    am4core.ready(function() {
+    
+    // Themes begin
+    am4core.useTheme(am4themes_animated);
+    // Themes end
+    
+    var chart = am4core.create("chartdiv", am4charts.PieChart3D);
+    chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+    
+    chart.legend = new am4charts.Legend();
+    
+    chart.data = [
+      {
+        category:"{{ chart[0][0] }}",
+        Sentences:{{ chart[0][1] }}
+      },
+      {
+        category:"{{ chart[1][0] }}",
+        Sentences:{{ chart[1][1] }}
+      },
+      {
+        category:"{{ chart[2][0] }}",
+        Sentences:{{ chart[2][1] }}
+      },
+      {
+        category:"{{ chart[3][0] }}",
+        Sentences:{{ chart[3][1] }}
+      }
+
+     
+    ];
+    
+    var series = chart.series.push(new am4charts.PieSeries3D());
+    series.dataFields.value = "Sentences";
+    series.dataFields.category = "category";
+    
+    }); // end am4core.ready()
+    </script>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, length=device-">
@@ -11,7 +64,7 @@
 <body style="background-image: url(https://img.freepik.com/free-vector/watercolor-background_87374-69.jpg?size=626&ext=jpg); background-size: cover;background-repeat: no-repeat;background-position: centre; position: relative;">
   <div class="login-wrap">
       <div class="login-html">
-          
+        <div id="chartdiv"></div>
           <p style="color:white"><input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Plaigarism Report</label></p>
           
           <p style="color:white"><input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Date: {{ timestamp.strftime('%Y-%m-%d') }}</label></p>
