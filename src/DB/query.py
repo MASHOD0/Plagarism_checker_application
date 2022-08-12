@@ -38,3 +38,7 @@ add_article="""INSERT INTO public."Articles"( language_id, article_link, article
 	        VALUES ({}, '{}', '{}');"""
 add_sentence="""INSERT INTO public."Article_sentence"( article_id, sentence) VALUES ( {}, '{}');"""
 get_article_id="""SELECT article_id FROM "Articles" WHERE "article_link"='{}';"""
+
+insert_sentence="""INSERT INTO public."Article_sentence"(
+	sentence_id, article_id, sentence)
+	VALUES (default, {}, '{}');"""

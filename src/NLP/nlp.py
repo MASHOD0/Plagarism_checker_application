@@ -1,9 +1,7 @@
-import sys
-import os
-cwd = os.getcwd()
-INDIC_NLP_LIB_HOME=os.path.join(cwd, "src", "NLP", "indic_nlp_library")
-INDIC_NLP_RESOURCES=os.path.join(cwd, "src","NLP", "indic_nlp_resources") 
+INDIC_NLP_LIB_HOME=r"C:\Users\mashh\Documents\git\Plagarism_checker_application\src\NLP\indic_nlp_library"
+INDIC_NLP_RESOURCES=r"C:\Users\mashh\Documents\git\Plagarism_checker_application\src\NLP\indic_nlp_resources"
 
+import sys
 from NLP.indic_nlp_library.indicnlp import common
 from NLP.indic_nlp_library.indicnlp import loader
 from NLP.indic_nlp_library.indicnlp.tokenize import sentence_tokenize
